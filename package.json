@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com/mz0/hello-node"
+    "url": "github.com/mz0/node-meet-docker"
   },
   "license": "ISC"
 }
