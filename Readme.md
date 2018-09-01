@@ -62,3 +62,5 @@ PASSWORD='foo bar' docker run  [...] -e PASSWORD [...]
   # pass many env. vars in file
 docker run --env-file ./env.list
 ```
+
+To make it clear: package.json is not used here (as soon as we do not rely on 'npm start'), neither is env.list
