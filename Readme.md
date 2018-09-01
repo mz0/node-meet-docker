@@ -2,7 +2,8 @@ Node primer
 ===========
 
 My first try of dockerized Node app
-As a rule Node's Dockerfile (e.g. [10]()) runs 'npm start'
+
+As a rule Node's Dockerfile (e.g. [10]()) runs 'npm start',
 Which in turn [looks for package.json](https://docs.npmjs.com/cli/start)'s
 
 "scripts": { "start": "foo bar.baz" }
