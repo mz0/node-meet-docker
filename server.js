@@ -18,3 +18,10 @@ var server = http.createServer(requestHandler);
 server.listen(PORT, function(){
 	console.log(`${process.env.NODE_ENV} server listening on port: ${PORT}. CTRL-C to exit.`);
 });
+
+process.on('SIGTERM', () => {
+  console.info('SIGTERM signal received.');
+  server.close(() => {
+    console.log('HTTP server closed.');
+  });
+});

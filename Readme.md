@@ -53,8 +53,6 @@ cldr : 33.1
 tz : 2018e
 ```
 
-**BUGS**: this server.js does not handle SIGTERM so 'docker stop' has to wait 10 second (timeout) and kill it with SIGKILL.
-
 Note: Pass env. vars (e.g. NODE_ENV) as follows:
 -----------------------------------------------
 ```
