@@ -3,7 +3,7 @@ Node primer
 
 My first try of dockerized Node app
 
-As a rule Node's Dockerfile (e.g. [10]()) runs 'npm start',
+As a rule [Node's Dockerfile](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)) runs 'npm start',
 Which in turn [looks for package.json](https://docs.npmjs.com/cli/start)'s
 
 "scripts": { "start": "foo bar.baz" }
@@ -12,12 +12,13 @@ and does exactly that, i.e. "foo bar.baz".
 Otherwise, if "scripts: {...}" is missing,
 'npm start' runs 'node server.js'.
 
-However in containers npm may deprive node from receiving (and passing down) SIGTERM.
-To stay on the safe side I call 'node' without npm, hence CMD [ "node", "server.js" ].
+However [in containers npm may start node from shell](https://medium.com/@becintec/building-graceful-node-applications-in-docker-4d2cd4d5d392)
+thus isolating it from SIGTERM.
+To stay on the safe side I call *node* without npm, hence *CMD [ "node", "server.js" ]*.
 
 Building image:
 ```
-docker build -t exactpro/node0 .
+docker build -t exactpro/node0:0.1 .
 ```
 
 Running (bind-mount .:/app and run this thing from it):
@@ -52,7 +53,7 @@ cldr : 33.1
 tz : 2018e
 ```
 
-**BUGS**: this server.js does not handle SIGTERM so 'docker stop' has to wait 10 second timeout and kill it with SIGKILL.
+**BUGS**: this server.js does not handle SIGTERM so 'docker stop' has to wait 10 second (timeout) and kill it with SIGKILL.
 
 Note: Pass env. vars (e.g. NODE_ENV) as follows:
 -----------------------------------------------
