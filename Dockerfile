@@ -1,11 +1,9 @@
 FROM node:10-alpine
 EXPOSE 3000
-RUN rmdir /media/floppy
 RUN mkdir /app
 WORKDIR /app
 ENV NODE_ENV $NODE_ENV
-#   supply a volume for /app like this:
-# docker run -d -v:somevol:/app <containerID>
-#   or bind-mount this dir
-# docker run -d -v:.:/app <containerID>
+# bind-mount app dir (with 'server.js') as /app
+# and map port to random (or to e.g. 3001):
+#   docker run -d -v:.:/app -P (or -p3001:3000)
 CMD [ "node", "server.js" ]
