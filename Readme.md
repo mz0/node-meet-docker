@@ -1,7 +1,7 @@
-Nodei+Docker primer
+Node+Docker primer
 ===========
 
-My first try of dockerized Node app
+Try running Node app in Docker
 
 As a rule [Node Dockerfiles](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/))
 run 'npm start',
@@ -35,8 +35,8 @@ NODE_ENV='foobar' docker run -d --env NODE_ENV -p3001:3000 -v ${PWD}:/app --name
 Checking:
 ```
 $ docker ps
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
-51854c3443f2        exactpro/node0      "node server.js"    8 seconds ago       Up 5 seconds        0.0.0.0:3001->3000/tcp   tempNode1
+CONTAINER ID  IMAGE           COMMAND           CREATED        STATUS        PORTS                   NAMES
+51854c3443f2  exactpro/node0  "node server.js"  8 seconds ago  Up 5 seconds  0.0.0.0:3001->3000/tcp  tempNode1
 ```
 
 Now browse to http://localhost:3001 and watch something like:
