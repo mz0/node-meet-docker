@@ -27,7 +27,7 @@ Building image:
 docker build -t exactpro/node0:0.1 .
 ```
 
-Running (bind-mount .:/app and run this thing from it):
+Create a container and run it (bind-mount .:/app and run JS from it):
 ```
 NODE_ENV='foobar' docker run -d --env NODE_ENV -p3001:3000 -v ${PWD}:/app --name tempNode1 -h njs0 exactpro/node0:0.1
 ```
@@ -57,6 +57,16 @@ icu : 62.1
 unicode : 11.0
 cldr : 33.1
 tz : 2018e
+```
+
+Check logs (-f - follow live messages):
+```
+docker container logs -f tempNode1
+```
+
+Shudown app/container (in separate term. session so you can see logs)
+```
+docker stop tempNode1
 ```
 
 Note: Pass env. vars (e.g. NODE_ENV) as follows:
