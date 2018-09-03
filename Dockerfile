@@ -5,5 +5,5 @@ WORKDIR /app
 ENV NODE_ENV $NODE_ENV
 # bind-mount app dir (with 'server.js') as /app
 # and map port to random (or to e.g. 3001):
-#   docker run -d -v:.:/app -P (or -p3001:3000)
-CMD [ "node", "server.js" ]
+#   docker run -d -v:${PWD}:/app -P (or -p3001:3000)
+CMD [ "npm", "start" ]
