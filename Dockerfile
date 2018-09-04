@@ -1,9 +1,9 @@
 FROM node:10-alpine
 EXPOSE 3000
-RUN mkdir /app
+VOLUME [/app]
 WORKDIR /app
 ENV NODE_ENV $NODE_ENV
 # bind-mount app dir (with 'server.js') as /app
-# and map port to random (or to e.g. 3001):
+# and map port to random (or to 3001):
 #   docker run -d -v:${PWD}:/app -P (or -p3001:3000)
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]

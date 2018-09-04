@@ -13,14 +13,7 @@ and does exactly that, i.e. "foo bar.baz".
 Otherwise, if "scripts: {...}" is missing,
 'npm start' runs 'node server.js'.
 
-It may be that
-[some images make npm start node from shell](https://medium.com/@becintec/building-graceful-node-applications-in-docker-4d2cd4d5d392)
-thus isolating it from SIGTERM.
-In that case you may prefer *CMD [ "node", "server.js" ]* so you can shutdown gracefully and swiftly.
-On my machine (Ubuntu 18.04/Docker CE 18.06) at time of writing
-with node:10-alpine (Alpine 3.8) as base
-I could not reproduce this problem,
-so I'll stick with the usual 'npm start'.
+As I do not see any advantage running npm (and occuping some RAM for it), I'll go with 'node server.js'
 
 Building image:
 ```
@@ -39,7 +32,7 @@ CONTAINER ID  IMAGE           COMMAND           CREATED        STATUS        POR
 51854c3443f2  exactpro/node0  "node server.js"  8 seconds ago  Up 5 seconds  0.0.0.0:3001->3000/tcp  tempNode1
 ```
 
-Now browse to http://localhost:3001 and watch something like:
+Now browse to http://localhost:3001 (e.g. 'curl localhost:3001') and watch something like:
 ```
  Platform: linux
  Versions:
