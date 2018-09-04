@@ -1,6 +1,6 @@
 FROM node:10-alpine
 EXPOSE 3000
-VOLUME [/app]
+VOLUME  /app
 WORKDIR /app
 ENV NODE_ENV $NODE_ENV
 # bind-mount app dir (with 'server.js') as /app
