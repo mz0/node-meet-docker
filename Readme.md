@@ -62,6 +62,8 @@ Shudown app/container (in separate term. session so you can see logs)
 docker stop tempNode1
 ```
 
+On [graceful shutdown when running from Kubernetes and problems with keep-alive'd connections](https://blog.risingstack.com/graceful-shutdown-node-js-kubernetes/).
+
 Note: Pass env. vars (e.g. NODE_ENV) as follows:
 -----------------------------------------------
 ```
